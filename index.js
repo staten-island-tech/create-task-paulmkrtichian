@@ -25,4 +25,4 @@ const URL ="https://dog.ceo/api/breeds/image/random";
          } catch (error) {
           console.log(error)
          }
-    }
+            }
