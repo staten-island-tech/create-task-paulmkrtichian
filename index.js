@@ -80,6 +80,8 @@ const bibleVerses = [
         verse: "(Isaiah 40:29)",
     }
 ];
+// Use For loops
+// Rewrite the Array
 
 console.log(bibleVerses);
 
@@ -97,6 +99,11 @@ function randomizeddisplay() {
         </div>
     `;
     versesContainer.innerHTML = randomVerseCard;
+}
+function randomdisplay(){
+
+
+    
 }
 function favoriteVerse() {
     const displayedVerse = versesContainer.innerHTML;
