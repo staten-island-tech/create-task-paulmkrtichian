@@ -1,118 +1,85 @@
 const bibleVerses = [
     {
-        text: "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.",
-        verse: "(Jeremiah 29:11)",
+        text: "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.",
+        verse: "Romans 15:13"
     },
     {
-        text: "The Lord is my shepherd; I shall not want.",
-        verse: "(Psalm 23:1)",
+        text: "Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us.",
+        verse: "Ephesians 3:20"
+    },
+    {
+        text: "For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.",
+        verse: "Romans 8:38-39"
+    },
+    {
+        text: "The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness.",
+        verse: "Lamentations 3:22-23"
+    },
+    {
+        text: "Jesus looked at them and said, 'With man it is impossible, but not with God. For all things are possible with God.'",
+        verse: "Mark 10:27"
+    },
+    {
+        text: "Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.",
+        verse: "Proverbs 3:5-6"
+    },
+    {
+        text: "Be watchful, stand firm in the faith, act like men, be strong. Let all that you do be done in love.",
+        verse: "1 Corinthians 16:13-14"
+    },
+    {
+        text: "The Lord said, “Behold, they are one people, and they all have the same language. And this is what they began to do, and now nothing which they purpose to do will be impossible for them.",
+        verse: "Genesis 11:6"
+    },
+    {
+        text: "Fear of man will prove to be a snare, but whoever trusts in the Lord is kept safe.",
+        verse: "Proverbs 29:25"
+    },
+    {
+        text: "But you, Lord, are a shield around me, my glory, the One who lifts my head high.",
+        verse: "Psalms 3:3"
     },
     {
         text: "I can do all things through him who strengthens me.",
-        verse: "(Philippians 4:13)",
+        verse: "Philippians 4:13"
     },
     {
-        text: "The fear of the Lord is the beginning of knowledge; fools despise wisdom and instruction.",
-        verse: "(Proverbs 1:7)",
-    },
-    {
-        text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
-        verse: "(Romans 8:28)",
-    },
-    {
-        text: "Trust in the Lord with all your heart, and do not lean on your own understanding.",
-        verse: "(Proverbs 3:5)",
-    },
-    {
-        text: "Jesus answered, 'I am the way and the truth and the life. No one comes to the Father except through me.",
-        verse: "(John 14:6)",
-    },
-    {
-        text: "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.",
-        verse: "(Galatians 5:22-23)",
-    },
-    {
-        text: "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!",
-        verse: "(2 Corinthians 5:17)",
-    },
-    {
-        text: "But seek first the kingdom of God and his righteousness, and all these things will be added to you.",
-        verse: "(Matthew 6:33)",
-    },
-    {
-        text: "Blessed are the peacemakers, for they will be called children of God.",
-        verse: "(Matthew 5:9)",
-    },
-    {
-        text: "And we have known and believed the love that God has for us. God is love, and he who abides in love abides in God, and God in him.",
-        verse: "(1 John 4:16)",
-    },
-    {
-        text: "He who dwells in the secret place of the Most High shall abide under the shadow of the Almighty.",
-        verse: "(Psalm 91:1)",
-    },
-    {
-        text: "The Lord will fight for you, and you shall hold your peace.",
-        verse: "(Exodus 14:14)",
-    },
-    {
-        text: "The Lord is good, a stronghold in the day of trouble; and He knows those who trust in Him.",
-        verse: "(Nahum 1:7)",
-    },
-    {
-        text: "And we know that all things work together for good to those who love God, to those who are the called according to His purpose.",
-        verse: "(Romans 8:28)",
-    },
-    {
-        text: "For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord.",
-        verse: "(Romans 8:38-39)",
-    },
-    {
-        text: "The Lord is my light and my salvation; whom shall I fear? The Lord is the strength of my life; of whom shall I be afraid?",
-        verse: "(Psalm 27:1)",
-    },
-    {
-        text: "Be strong and of good courage; do not be afraid, nor be dismayed, for the Lord your God is with you wherever you go.",
-        verse: "(Joshua 1:9)",
-    },
-    {
-        text: "He gives power to the weak, and to those who have no might, He increases strength.",
-        verse: "(Isaiah 40:29)",
+        text: "Fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you, I will uphold you with my righteous right hand.",
+        verse: "Isaiah 41:10"
     }
 ];
-// Use For loops
-// Rewrite the Array
 
-console.log(bibleVerses);
 
-const versesContainer = document.getElementById("versesContainer");
-const randomVerseButton = document.getElementById("randomVerseButton");
-const favoritesContainer = document.getElementById("favoritesContainer");
-const favoriteVerseButton = document.getElementById("favoriteVerseButton");
+const DOMSelectors = {
+    favoritecontainer: document.getElementById("favoritesContainer"),
+    randomcontainer: document.getElementById("versesContainer"),
+    randomVerseButton: document.getElementById("randomVerseButton"),
+    favoriteVerseButton: document.getElementById("favoriteVerseButton"),
+  
+}
 
-function randomizeddisplay() {
+DOMSelectors.randomVerseButton.addEventListener("click", RandomizedVerse);
+DOMSelectors.favoriteVerseButton.addEventListener("click", FavoriteVerse);
+
+function RandomizedVerse() {
     const randomin = Math.floor(Math.random() * bibleVerses.length);
     const randomver = bibleVerses[randomin];
-    const randomVerseCard = `
-        <div class="verse-box">
-            <p>${randomver.verse}: ${randomver.text}</p>
+    const randomcard = `
+        <div class="verses">
+            <p>${randomver.verse} - ${randomver.text}</p>
         </div>
     `;
-    versesContainer.innerHTML = randomVerseCard;
+    DOMSelectors.randomcontainer.innerHTML = randomcard;
 }
-function randomdisplay(){
+function FavoriteVerse() {
+    for (let i = 0; i < DOMSelectors.randomcontainer.children.length; i++) {
+        const displayedverse = DOMSelectors.randomcontainer.children[i].innerText;
 
-
-    
-}
-function favoriteVerse() {
-    const displayedVerse = versesContainer.innerHTML;
     const favoriteVerseCard = `
-        <div class="favorite-box">
-            <p>${displayedVerse}</p>
+        <div class="favorites">
+           <p>${displayedverse}</p>
         </div>
     `;
-    favoritesContainer.innerHTML += favoriteVerseCard;
+    DOMSelectors.favoritecontainer.innerHTML += favoriteVerseCard;
 }
-randomVerseButton.addEventListener("click", randomizeddisplay);
-favoriteVerseButton.addEventListener("click", favoriteVerse);
+}
