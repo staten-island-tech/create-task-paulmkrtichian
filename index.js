@@ -55,10 +55,12 @@ const DOMSelectors = {
     randomcontainer: document.getElementById("versecontainer"),
     randomVerseButton: document.getElementById("randombutton"),
     favoriteVerseButton: document.getElementById("favoritebutton"),
+    deleteButton: document.getElementById("deleteButton")
   
 }
 DOMSelectors.randomVerseButton.addEventListener("click", RandomizedVerse);
 DOMSelectors.favoriteVerseButton.addEventListener("click", FavoriteVerse);
+DOMSelectors.deleteButton.addEventListener("click", deletefavorite)
 
 function RandomizedVerse() {
     const randomin = Math.floor(Math.random() * bibleVerses.length);
@@ -84,6 +86,6 @@ function FavoriteVerse() {
 }
 }
 
-function deletefavorite{
-    
+function deletefavorite(){
+    DOMSelectors.favoritecontainer.innerHTML = ""
 }
