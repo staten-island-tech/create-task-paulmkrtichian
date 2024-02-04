@@ -51,13 +51,12 @@ const bibleVerses = [
 
 
 const DOMSelectors = {
-    favoritecontainer: document.getElementById("favoritesContainer"),
-    randomcontainer: document.getElementById("versesContainer"),
-    randomVerseButton: document.getElementById("randomVerseButton"),
-    favoriteVerseButton: document.getElementById("favoriteVerseButton"),
+    favoritecontainer: document.getElementById("favoritecontainer"),
+    randomcontainer: document.getElementById("versecontainer"),
+    randomVerseButton: document.getElementById("randombutton"),
+    favoriteVerseButton: document.getElementById("favoritebutton"),
   
 }
-
 DOMSelectors.randomVerseButton.addEventListener("click", RandomizedVerse);
 DOMSelectors.favoriteVerseButton.addEventListener("click", FavoriteVerse);
 
@@ -65,21 +64,26 @@ function RandomizedVerse() {
     const randomin = Math.floor(Math.random() * bibleVerses.length);
     const randomver = bibleVerses[randomin];
     const randomcard = `
-        <div class="verses">
+        <div class="versecontainer">
             <p>${randomver.verse} - ${randomver.text}</p>
         </div>
     `;
     DOMSelectors.randomcontainer.innerHTML = randomcard;
+    
 }
 function FavoriteVerse() {
     for (let i = 0; i < DOMSelectors.randomcontainer.children.length; i++) {
         const displayedverse = DOMSelectors.randomcontainer.children[i].innerText;
 
-    const favoriteVerseCard = `
+    const favoritecard = `
         <div class="favorites">
            <p>${displayedverse}</p>
         </div>
     `;
-    DOMSelectors.favoritecontainer.innerHTML += favoriteVerseCard;
+    DOMSelectors.favoritecontainer.innerHTML += favoritecard;
 }
+}
+
+function deletefavorite{
+    
 }
